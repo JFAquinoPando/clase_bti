@@ -1,12 +1,95 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        article {
+            position: relative;
+            width: 250px;
+            transition: all 0.3s ease;
+        }
+       
+        article img:first-child {
+            box-shadow: 0 60px 60px -60px rgba(0, 30, 255, 0.5);
+            border-radius: 5px;
+            object-fit: cover;
+            width: 100%;
+        }
+       
+        article img:last-child {
+            position: absolute;
+            width: 200px;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            margin: auto;
+            transform: translateY(25%);
+            transition: 0.3s ease;
+            opacity: 0;
+        }
+       
+        article:hover {
+            transform: perspective(250px) rotateX(10deg) translateY(-5%) translateZ(0);
+        }
+       
+        article::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            height: 100%;
+            width: 100%;
+            background-image: linear-gradient(to bottom, transparent 10%, rgba(0, 0, 0, 0.5) 50%, rgba(0, 0, 0) 95%);
+            opacity: 0;
+            transition: 0.3s ease;
+        }
+       
+        article:hover::before {
+            opacity: 1;
+        }
+       
+        article:hover img:last-child {
+            opacity: 1;
+            transform: translateY(10%);
+        }
+       
+        section {
+            display: flex;
+            width: 400px;
+            height: 330px;
+        }
+       
+        section img {
+            width: 0px;
+            flex-grow: 1;
+            object-fit: cover;
+            opacity: 0.8;
+            transition: 0.5s ease;
+        }
+       
+        section img:hover {
+            width: 200px;
+            cursor: crosshair;
+            opacity: 1;
+            filter: contrast(120%);
+        }
+    </style>
 </head>
+
 <body>
-    test
+    <article>
+        <img src="https://www.crunchyroll.com/imgsrv/display/thumbnail/480x720/catalog/crunchyroll/35e4ac6339f5fdcc164160a5755790cd.jpe" alt="">
+        <img src="https://e1.pngegg.com/pngimages/670/695/png-clipart-goku-ssj-blue-v3-son-guko-character.png" alt="">
+    </article>
+
+    <section>
+        <img src="https://www.fortressofsolitude.co.za/wp-content/uploads/2015/09/dragon-ball-z-facts.jpg" alt="">
+        <img src="https://i.blogs.es/26b99a/dragon-ball-z-kakarot-el-siguiente-dlc-estara-inspirado-en-la-primera-gran-batalla-de-goku-adulto-afirman-insiders/1366_2000.jpeg" alt="">
+        <img src="https://i.blogs.es/a1b456/dragon-ballcuantos-anos-paso-entre-dragon-ball-z-y-dragon-ball-gt1/840_560.jpeg" alt="">
+    </section>
 </body>
+
 </html>
